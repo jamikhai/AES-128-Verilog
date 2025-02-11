@@ -1,3 +1,5 @@
 .Xil/
 
-build/
+build/*
+
+vivado*
