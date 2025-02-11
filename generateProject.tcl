@@ -58,7 +58,7 @@ add_files -fileset sim_1 "./$projectName/sim/"
 #----------------------------------------------------------------------
 # Import the files into the project.
 #----------------------------------------------------------------------
-import_files -force
+#import_files -force
 
 #----------------------------------------------------------------------
 # Update compile order for the sources and simulation filesets.

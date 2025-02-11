@@ -1,12 +1,8 @@
-// aes_top.v
-module aes_top (
-    input  wire         clk,        // Clock signal for synchronous operation
-    input  wire         rst,        // Asynchronous reset
-    input  wire         start,      // Start signal to trigger encryption
+// aes_comb.v
+module aes_comb (
     input  wire [127:0] plaintext,  // 128-bit input data
     input  wire [127:0] key,        // 128-bit AES key
-    output reg  [127:0] ciphertext, // 128-bit encrypted output data
-    output reg          done        // High for one clock cycle when encryption is complete
+    output wire [127:0] ciphertext  // 128-bit encrypted output data
 );
 
     // Intermediate state wires (combinational)
@@ -100,26 +96,7 @@ module aes_top (
     aes_final_round u_final_round (
         .in_state (state9),
         .round_key(round_key10),
-        .out_state(state10)
+        .out_state(ciphertext)
     );
-
-    // Synchronous block: when a start signal is received, latch the final state
-    // into the output register and assert done for one clock cycle.
-    always @(posedge clk or posedge rst) begin
-        if (rst) begin
-            ciphertext <= 128'b0;
-            done       <= 1'b0;
-        end else begin
-            if (start) begin
-                // When start is asserted, the entire combinational chain is assumed
-                // to compute the encryption result, which is then captured.
-                ciphertext <= state10;
-                done       <= 1'b1;
-            end else begin
-                // Clear the done flag in subsequent cycles.
-                done       <= 1'b0;
-            end
-        end
-    end
 
 endmodule
