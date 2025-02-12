@@ -1,4 +1,6 @@
 // aes_sbox.v
+`timescale 1ns/1ps
+
 module aes_sbox (
     input  wire [7:0] in_byte,
     output reg  [7:0] out_byte

@@ -1,4 +1,6 @@
 // aes_sub_word.v
+`timescale 1ns/1ps
+
 module aes_sub_word(
     input  wire [31:0] in_word,
     output wire [31:0] out_word

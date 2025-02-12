@@ -1,4 +1,6 @@
 // aes_keyexpansion.v
+`timescale 1ns/1ps
+
 module aes_keyexpansion(
     input  wire [127:0] key,
     output wire [127:0] round_key0,

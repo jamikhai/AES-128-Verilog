@@ -1,4 +1,6 @@
 // aes_addroundkey.v
+`timescale 1ns/1ps
+
 module aes_addroundkey (
     input  wire [127:0] in_state,
     input  wire [127:0] round_key,

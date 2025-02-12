@@ -1,4 +1,6 @@
 // aes_shiftrows.v
+`timescale 1ns/1ps
+
 module aes_shiftrows (
     input  wire [127:0] in_state,
     output wire [127:0] out_state

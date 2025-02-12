@@ -1,4 +1,6 @@
 // aes_comb.v
+`timescale 1ns/1ps
+
 module aes_comb (
     input  wire [127:0] plaintext,  // 128-bit input data
     input  wire [127:0] key,        // 128-bit AES key

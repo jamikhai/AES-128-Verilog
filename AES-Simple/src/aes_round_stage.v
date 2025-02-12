@@ -1,4 +1,6 @@
 // aes_round_stage.v
+`timescale 1ns/1ps
+
 module aes_round_stage (
     input  wire         disable_mix, // When 1, bypass MixColumns (final round)
     input  wire [127:0] in_state,
