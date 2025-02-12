@@ -6,7 +6,7 @@ module aes_comb_tb;
     // Testbench signals
     reg [127:0] plaintext;
     reg [127:0] key;
-    reg [127:0] ciphertext;
+    wire [127:0] ciphertext;
     reg [127:0] expected_output;
 
     // Instantiate the AES top module under test
@@ -28,9 +28,9 @@ module aes_comb_tb;
         #10;
 
         // Apply test vector
-        plaintext = 128'h00112233445566778899aabbccddeeff;
-        key       = 128'h000102030405060708090a0b0c0d0e0f;
-        expected_output = 128'h69c4e0d86a7b0430d8cdb78070b4c55a;
+        plaintext       = 128'h3243f6a8885a308d313198a2e0370734;
+        key             = 128'h2b7e151628aed2a6abf7158809cf4f3c;
+        expected_output = 128'h3925841d02dc09fbdc118597196a0b32;
 
         // Wait sufficient time for combinational logic to settle
         #20;

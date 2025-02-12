@@ -12,7 +12,7 @@ AES-128 is a cornerstone of modern cryptography, used in securing data and commu
   [https://en.wikipedia.org/wiki/Advanced_Encryption_Standard](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard)
 
 - **NIST FIPS 197 (AES Specification including test vectors):**  
-  [https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.197.pdf](https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.197.pdf)
+  [https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.197-upd1.pdf](https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.197-upd1.pdf)
 
 - **AES Explained (Advanced Encryption Standard) - Computerphile:**  
   [Easy to understand video from a great YouTube channel](https://www.youtube.com/watch?v=O4xNJsjtN6E)
