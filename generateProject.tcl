@@ -39,7 +39,7 @@ if {[file exists "./build/$projectName"]} {
 file mkdir "./build/$projectName"
 
 #----------------------------------------------------------------------
-# Create the Vivado project targeting the Zybo Z7-10 board.
+# Create the Vivado project targeting a specific board
 #----------------------------------------------------------------------
 set partName xc7z010clg400-1
 create_project -force $projectName "./build/$projectName" \
@@ -48,7 +48,7 @@ create_project -force $projectName "./build/$projectName" \
 #----------------------------------------------------------------------
 # Add design sources (Verilog files) from the <project_name>/src directory.
 #----------------------------------------------------------------------
-add_files "./$projectName/src/"
+add_files -fileset sources_1 "./$projectName/src/"
 
 #----------------------------------------------------------------------
 # Add simulation sources (Verilog testbenches) from the <project_name>/sim directory.
@@ -58,7 +58,7 @@ add_files -fileset sim_1 "./$projectName/sim/"
 #----------------------------------------------------------------------
 # Import the files into the project.
 #----------------------------------------------------------------------
-#import_files -force
+#import_files -force # Copies files instead of directly using the source
 
 #----------------------------------------------------------------------
 # Update compile order for the sources and simulation filesets.
