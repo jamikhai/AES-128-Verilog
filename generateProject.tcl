@@ -4,8 +4,7 @@
 # Usage:
 #   vivado -mode tcl -source generateProject.tcl -tclargs <project_name>
 #
-# This script builds a Vivado project for a design,
-# targeting the Zybo Z7-10 board (Part: xc7z010clg400-1).
+# This script builds a Vivado project to be opened with GUI
 #
 # Directory structure assumed:
 #
@@ -41,7 +40,12 @@ file mkdir "./build/$projectName"
 #----------------------------------------------------------------------
 # Create the Vivado project targeting a specific board
 #----------------------------------------------------------------------
-set partName xc7z010clg400-1
+# Zybo Z7-20
+set partName xc7z020clg400-1 
+
+# ZCU102 Ultrascale+ (need license)
+#set partName xczu9eg-ffvb1156-2-e 
+
 create_project -force $projectName "./build/$projectName" \
     -part $partName
 
@@ -55,16 +59,22 @@ add_files -fileset sources_1 "./$projectName/src/"
 #----------------------------------------------------------------------
 add_files -fileset sim_1 "./$projectName/sim/"
 
+#---------------------------------------------------------------------- 
+# Add constraint sources from the <project_name>/constraints directory.
+#----------------------------------------------------------------------
+add_files -fileset constrs_1 "./$projectName/constraints/"
+
 #----------------------------------------------------------------------
 # Import the files into the project.
 #----------------------------------------------------------------------
 #import_files -force # Copies files instead of directly using the source
 
 #----------------------------------------------------------------------
-# Update compile order for the sources and simulation filesets.
+# Update compile order for the filesets.
 #----------------------------------------------------------------------
 update_compile_order -fileset sources_1
 update_compile_order -fileset sim_1
+#update_compile_order -fileset constrs_1
 
 #---------------------------------------------------------------------- 
 # (Optional) Synthesis and Implementation steps
